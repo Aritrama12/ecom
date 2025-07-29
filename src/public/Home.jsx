@@ -3,7 +3,6 @@ import React from 'react'
 export default function Home() {
   return (
     <>
-      <h1>E-Commerce Website</h1>
       <div id="carouselExampleIndicators" className="carousel slide">
         <div className="carousel-indicators">
           <button

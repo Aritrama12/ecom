@@ -8,13 +8,13 @@ export default function Navbar() {
 
     <>
 
-      <nav className="navbar navbar-expand-lg" style={{backgroundColor:"#0c63a1ff"}}>
+      <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#0c63a1ff" }}>
 
         <div className="container-fluid">
 
           <Link className="navbar-brand" to="#">
 
-            SLIPKART
+            <span className="fst-italic fw-bold">SLIPKART</span>
 
           </Link>
 
@@ -41,229 +41,141 @@ export default function Navbar() {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-
               <li className="nav-item">
 
                 <Link className="nav-link active" aria-current="page" to="/">
 
-                  Home
+                  Home <i class="fa-solid fa-house-user"></i>
 
                 </Link>
 
               </li>
-
               <li className="nav-item">
 
                 <Link className="nav-link" to="/Signup">
 
-                  Sign up
+                  Sign up <i class="fa-solid fa-right-to-bracket"></i>
 
                 </Link>
 
               </li>
-
               <li className="nav-item dropdown">
 
-             <a
+                <a
 
-    className="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle"
 
-    to="#"
+                  to="#"
 
-    role="button"
+                  role="button"
 
-    data-bs-toggle="dropdown"
+                  data-bs-toggle="dropdown"
 
-    aria-expanded="false"
+                  aria-expanded="false"
 
-  >
+                >
 
-   More
+                  More
 
-  </a>
+                </a>
 
-  <ul className="dropdown-menu">
+                <ul className="dropdown-menu">
 
-    <li>
+                  <li>
 
-      <a className="dropdown-item" to="#">
+                    <a className="dropdown-item" to="#">
 
-        Notification Preferences
+                      Notification Preferences
 
-      </a>
+                    </a>
 
-    </li>
+                  </li>
 
-    <li>
+                  <li>
 
-      <a className="dropdown-item" to="#">
+                    <a className="dropdown-item" to="#">
 
-        24*7 Customer Help
+                      24*7 Customer Help
 
-      </a>
+                    </a>
 
-    </li>
+                  </li>
 
-    <li>
+                  <li>
 
-      <hr className="dropdown-divider" />
+                    <hr className="dropdown-divider" />
 
-    </li>
+                  </li>
 
-    <li>
+                  <li>
 
-      <a className="dropdown-item" to="#">
+                    <a className="dropdown-item" to="#">
 
-        Advertise
-
-      </a>
-
-    </li>
-
-  </ul>
-
-</li>
-
-              <li className="nav-item">
-
-                <Link className="nav-link" to="#">
-
-                  Add to cart
-
-                </Link>
-
+                      Advertise
+                    </a>
+                  </li>
+                </ul>
               </li>
-
+              <li className="nav-item">
+                <Link className="nav-link" to="#">
+                  Add to cart <i class="fa-solid fa-cart-arrow-down"></i>
+                </Link>
+              </li>
             </ul>
-
-            <form className="d-flex" role="search">
-
-              <input
-
-                className="form-control me-2"
-
-                type="search"
-
-                placeholder="Search for products,brands and More"
-
-                aria-label="Search"
-
-              />
-
-              <button className="btn btn-outline-success" type="submit">
-
-                Search
-
-              </button>
-
-            </form>
-
+            <div className="d-flex" role="search">
+              <div className="input-group mx-2">
+                <input  className="form-control me-2" type="search" placeholder="Search for brands and products" aria-label="Search" aria-describedby="button-addon2"/>
+                <button className="btn btn-outline-secondary" type="button" id="button-addon2">search<i class="fa-brands fa-searchengin"></i></button>
+              </div>
+            </div>
+            <button
+              type="button"
+              className="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Log in<i class="fa-solid fa-user"></i>
+            </button>
           </div>
-
         </div>
-
-        <>
-
-  {/* Button trigger modal */}
-
-  <button
-
-    type="button"
-
-    className="btn btn-primary"
-
-    data-bs-toggle="modal"
-
-    data-bs-target="#exampleModal"
-
-  >
-
-    Log in
-
-  </button>
-
-  {/* Modal */}
-
-  <div
-
-    className="modal fade"
-
-    id="exampleModal"
-
-    tabIndex={-2}
-
-    aria-labelledby="exampleModalLabel"
-
-    aria-hidden="true"
-
-  >
-
-    <div className="modal-dialog">
-
-      <div className="modal-content">
-
-        <div className="modal-header">
-
-          <h1 className="modal-title fs-5" id="exampleModalLabel">
-
-            Log in
-
-          </h1>
-
-          <button
-
-            type="button"
-
-            className="btn-close"
-
-            data-bs-dismiss="modal"
-
-            aria-label="Close"
-
-          />
-
+        <div
+          className="modal fade"
+          id="exampleModal"
+          tabIndex={-2}
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h1 className="modal-title fs-5" id="exampleModalLabel">
+                  Log in
+                </h1>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                />
+              </div>
+              <div className="modal-body">Get access to your Orders, Wishlist and Recommendations</div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Are you already a Customer?
+                </button>
+                <button type="button" className="btn btn-primary">
+                  Sign up
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div className="modal-body">Get access to your Orders, Wishlist and Recommendations</div>
-
-        <div className="modal-footer">
-
-          <button
-
-            type="button"
-
-            className="btn btn-secondary"
-
-            data-bs-dismiss="modal"
-
-          >
-
-            Are you already a Customer?
-
-          </button>
-
-          <button type="button" className="btn btn-primary">
-
-            Sign up
-
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</>
-
       </nav>
-
     </>
-
   )
-
 }
