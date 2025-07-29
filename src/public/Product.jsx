@@ -5,10 +5,10 @@ import React from 'react'
 export default function Product() {
     const products = [
         { id: 1, name: "Speaker", price: 1000 },
-        { id: 2, name: " Laptop ", price: 1000, }
-        { id: 3, name: " Mobile", price: 1000, }
-        { id: 4, name: "Headphones", price: 1000, }
-        { id: 5, name: "Tablet", price: 1000, }
+        { id: 2, name: " Laptop ", price: 1000},
+        { id: 3, name: " Mobile", price: 1000},
+        { id: 4, name: "Headphones", price: 1000},
+        { id: 5, name: "Tablet", price: 1000 },
     ]
 
 
