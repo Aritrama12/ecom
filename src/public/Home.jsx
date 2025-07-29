@@ -29,13 +29,13 @@ export default function Home() {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src="./image/5b309e98775e22e4.webp" className="d-block w-100" alt="Bed" />
+            <img src="./img/5b309e98775e22e4.webp" className="d-block w-100" alt="Bed" />
           </div>
           <div className="carousel-item">
-            <img src="./image/1338bd4fc60390d8.webp" className="d-block w-100" alt="Sofa" />
+            <img src="./img/59cc03576ab30951.webp" className="d-block w-100" alt="Sofa" />
           </div>
           <div className="carousel-item">
-            <img src="./image/1558a721300c7f6d.webp" className="d-block w-100" alt="Plane" />
+            <img src="./img/74f0ad81e44e6e6f.webp" className="d-block w-100" alt="Plane" />
           </div>
         </div>
         <button
