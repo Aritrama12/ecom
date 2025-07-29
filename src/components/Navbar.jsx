@@ -1,117 +1,74 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Signup from '../public/Signup'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from "react";
+import { Link } from "react-router-dom";
+import Signup from "../public/Signup";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Login from "../public/Login";
 export default function Navbar() {
-
   return (
-
     <>
-
-      <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#0c63a1ff" }}>
-
+      <nav
+        className="navbar navbar-expand-lg"
+        style={{ backgroundColor: "#0c63a1ff" }}
+      >
         <div className="container-fluid">
-
           <Link className="navbar-brand" to="#">
-
             <span className="fst-italic fw-bold">SLIPKART</span>
-
           </Link>
 
           <button
-
             className="navbar-toggler"
-
             type="button"
-
             data-bs-toggle="collapse"
-
             data-bs-target="#navbarSupportedContent"
-
             aria-controls="navbarSupportedContent"
-
             aria-expanded="false"
-
             aria-label="Toggle navigation"
-
           >
-
             <span className="navbar-toggler-icon" />
-
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-
                 <Link className="nav-link active" aria-current="page" to="/">
-
                   Home <i class="fa-solid fa-house-user"></i>
-
                 </Link>
-
               </li>
               <li className="nav-item">
-
                 <Link className="nav-link" to="/Signup">
-
                   Sign up <i class="fa-solid fa-right-to-bracket"></i>
-
                 </Link>
-
               </li>
               <li className="nav-item dropdown">
-
                 <a
-
                   className="nav-link dropdown-toggle"
-
                   to="#"
-
                   role="button"
-
                   data-bs-toggle="dropdown"
-
                   aria-expanded="false"
-
                 >
-
                   More
-
                 </a>
 
                 <ul className="dropdown-menu">
-
                   <li>
-
                     <a className="dropdown-item" to="#">
-
                       Notification Preferences
-
                     </a>
-
                   </li>
 
                   <li>
-
                     <a className="dropdown-item" to="#">
-
                       24*7 Customer Help
-
                     </a>
-
                   </li>
 
                   <li>
-
                     <hr className="dropdown-divider" />
-
                   </li>
 
                   <li>
-
                     <a className="dropdown-item" to="#">
-
                       Advertise
                     </a>
                   </li>
@@ -125,8 +82,20 @@ export default function Navbar() {
             </ul>
             <div className="d-flex" role="search">
               <div className="input-group mx-2">
-                <input  className="form-control me-2" type="search" placeholder="Search for brands and products" aria-label="Search" aria-describedby="button-addon2"/>
-                <button className="btn btn-outline-secondary" type="button" id="button-addon2">search<i class="fa-brands fa-searchengin"></i></button>
+                <input
+                  className="form-control me-2"
+                  type="search"
+                  placeholder="Search for brands and products"
+                  aria-label="Search"
+                  aria-describedby="button-addon2"
+                />
+                <button
+                  className="btn btn-outline-secondary"
+                  type="button"
+                  id="button-addon2"
+                >
+                  search<i class="fa-brands fa-searchengin"></i>
+                </button>
               </div>
             </div>
             <button
@@ -159,23 +128,13 @@ export default function Navbar() {
                   aria-label="Close"
                 />
               </div>
-              <div className="modal-body">Get access to your Orders, Wishlist and Recommendations</div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Are you already a Customer?
-                </button>
-                <button type="button" className="btn btn-primary">
-                  Sign up
-                </button>
+              <div className="modal-body">
+                <Login/>
               </div>
             </div>
           </div>
         </div>
       </nav>
     </>
-  )
+  );
 }
