@@ -15,7 +15,7 @@ export default function Product() {
 
     return (
         <>
-            <div classNamem="row" >
+            <div className="row m-3" >
                 {products.map((product) => (
                     <div className="col-sm-3 mb-3" key={product.id}>
                         <div className="card">

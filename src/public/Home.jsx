@@ -1,4 +1,5 @@
 import React from 'react'
+import Product from './Product'
 
 export default function Home() {
   return (
@@ -55,8 +56,11 @@ export default function Home() {
           <span className="carousel-control-next-icon" aria-hidden="true" />
           <span className="visually-hidden">Next</span>
         </button>
-        <Link to="/Product"> Electronics</Link>
+
+
       </div>
+
+      <Product/>
     </>
   )
 }
