@@ -53,13 +53,13 @@ export default function Navbar() {
                 <ul className="dropdown-menu">
                   <li>
                     <a className="dropdown-item" to="#">
-                      Notification Preferences
+                      Notification Preferences<i class="fa-solid fa-bell"></i>
                     </a>
                   </li>
 
                   <li>
                     <a className="dropdown-item" to="#">
-                      24*7 Customer Help
+                      24*7 Customer Help <i class="fa-solid fa-circle-question"></i>
                     </a>
                   </li>
 
@@ -69,7 +69,7 @@ export default function Navbar() {
 
                   <li>
                     <a className="dropdown-item" to="#">
-                      Advertise
+                      Advertise<i class="fa-solid fa-rectangle-ad"></i>
                     </a>
                   </li>
                 </ul>
