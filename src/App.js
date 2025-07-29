@@ -10,7 +10,6 @@ function App() {
     <Route path="/"element={<> <Navbar/><Home/></>}/>
     <Route path="/signup"element={<> <Navbar/><Signup/></>}/>
     <Route path="/Login"element={<> <Navbar/><Login/></>}/>
-
    </Routes>
   );
 }
