@@ -6,13 +6,14 @@ import Login from "../public/Login";
 export default function Navbar() {
   return (
     <>
+
       <nav
         className="navbar navbar-expand-lg"
         style={{ backgroundColor: "#0c63a1ff" }}
       >
         <div className="container-fluid">
-          <Link className="navbar-brand" to="#">
-            <span className="fst-italic fw-bold">SLIPKART</span>
+          <Link style={{ textDecoration: "none" }} className="navbar-brand" to="#">
+            <span className="fst-italic fw-bold"> SLIPMART</span>
           </Link>
 
           <button
@@ -30,18 +31,18 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
+                <Link style={{ textDecoration: "none" }} className="nav-link active" aria-current="page" to="/">
                   Home <i class="fa-solid fa-house-user"></i>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/Signup">
+                <Link style={{ textDecoration: "none" }} className="nav-link" to="/Signup">
                   Sign up <i class="fa-solid fa-right-to-bracket"></i>
                 </Link>
               </li>
               <li className="nav-item dropdown">
                 <a
-                  className="nav-link dropdown-toggle"
+                  style={{ textDecoration: "none" }} className="nav-link dropdown-toggle"
                   to="#"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -52,13 +53,13 @@ export default function Navbar() {
 
                 <ul className="dropdown-menu">
                   <li>
-                    <a className="dropdown-item" to="#">
+                    <a style={{ textDecoration: "none" }} className="dropdown-item" to="#">
                       Notification Preferences<i class="fa-solid fa-bell"></i>
                     </a>
                   </li>
 
                   <li>
-                    <a className="dropdown-item" to="#">
+                    <a style={{ textDecoration: "none" }} className="dropdown-item" to="#">
                       24*7 Customer Help <i class="fa-solid fa-circle-question"></i>
                     </a>
                   </li>
@@ -68,14 +69,14 @@ export default function Navbar() {
                   </li>
 
                   <li>
-                    <a className="dropdown-item" to="#">
+                    <a style={{ textDecoration: "none" }} className="dropdown-item" to="#">
                       Advertise<i class="fa-solid fa-rectangle-ad"></i>
                     </a>
                   </li>
                 </ul>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/cart">
+                <Link style={{ textDecoration: "none" }} className="nav-link" to="/cart">
                   Add to cart <i class="fa-solid fa-cart-arrow-down"></i>
                 </Link>
               </li>
@@ -106,6 +107,20 @@ export default function Navbar() {
             >
               Log in<i class="fa-solid fa-user"></i>
             </button>
+            <div className="btn-group dropstart">
+              <button type="button" className="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <i className="fa-solid fa-bars "/>
+              </button>
+              <ul className="dropdown-menu mx-2">
+                <li><Link className="dropdown-item" to="#">My profile</Link></li>
+                <li><Link className="dropdown-item" to="#">Orders</Link></li>
+                <li><Link className="dropdown-item" to="#">Wishlist</Link></li>
+                <li><Link className="dropdown-item" to="#">Coupons</Link></li>
+                <li><Link className="dropdown-item" to="#">GiftCard</Link></li>
+                <li><Link className="dropdown-item" to="#">Logout</Link></li>
+
+              </ul>
+            </div>
           </div>
         </div>
         <div
@@ -129,7 +144,7 @@ export default function Navbar() {
                 />
               </div>
               <div className="modal-body">
-                <Login/>
+                <Login />
               </div>
             </div>
           </div>
