@@ -1,18 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Cart() {
+  const [Auth, setAuth] = useState("false")
+
   return (
-    <div className='row m-3 justify-content-center'>
-      <div className="col-sm-3 mb-3">
-        <div className="card" style={{ width: "18rem" }}>
-          <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <h6 className="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-            <p className="card-text"></p>
-            <a href="#" className="card-link">Card link</a>
-            <a href="#" className="card-link">Another link</a>
-          </div>
+    <div className='container text-center'>
+      <div className='row m-3 justify-content-center align-items-center'>
+        <div className="col-sm-12 mb-3">
+          <img src="./img/empty_cart.webp" alt="empty cart" srcset="" height={"200px"} />
         </div>
+        <div className="col-sm-12 mb-3">
+          <p className='fs-4'>Your cart is empty!</p>
+          <p className='fs-6'>Add items to it now.</p>
+        </div>
+        { Auth==="true" ?
+          (<>
+            <div className="col-sm-12 mb-3">
+              <button type="submit" className="btn btn-success">
+                Shop Now
+              </button>
+            </div>
+          </>) :
+          (<>
+            <div className="col-sm-12 mb-3">
+              <button type="submit" className="btn btn-danger">
+                Login
+              </button>
+            </div>
+          </>)
+        }
+
+
       </div>
     </div>
   )
