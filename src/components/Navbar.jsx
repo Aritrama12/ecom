@@ -75,7 +75,7 @@ export default function Navbar() {
                 </ul>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="#">
+                <Link className="nav-link" to="/cart">
                   Add to cart <i class="fa-solid fa-cart-arrow-down"></i>
                 </Link>
               </li>
