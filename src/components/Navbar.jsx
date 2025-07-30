@@ -91,11 +91,11 @@ export default function Navbar() {
                   aria-describedby="button-addon2"
                 />
                 <button
-                  className="btn btn-outline-secondary"
+                  className="btn btn-primary"
                   type="button"
                   id="button-addon2"
                 >
-                  search<i class="fa-brands fa-searchengin"></i>
+                  search<i class="fa-brands fa-searchengin"> </i>
                 </button>
               </div>
             </div>
@@ -108,16 +108,16 @@ export default function Navbar() {
               Log in<i class="fa-solid fa-user"></i>
             </button>
             <div className="btn-group dropstart">
-              <button type="button" className="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <button type="button" className="btn btn-danger dropdown-toggle ms-2" data-bs-toggle="dropdown" aria-expanded="false">
                 <i className="fa-solid fa-bars "/>
               </button>
-              <ul className="dropdown-menu mx-2">
-                <li><Link className="dropdown-item" to="#">My profile</Link></li>
-                <li><Link className="dropdown-item" to="#">Orders</Link></li>
-                <li><Link className="dropdown-item" to="#">Wishlist</Link></li>
-                <li><Link className="dropdown-item" to="#">Coupons</Link></li>
-                <li><Link className="dropdown-item" to="#">GiftCard</Link></li>
-                <li><Link className="dropdown-item" to="#">Logout</Link></li>
+              <ul className="dropdown-menu ">
+                <li><Link className="dropdown-item" style={{ textDecoration: "none" }}to="#">My profile</Link></li>
+                <li><Link className="dropdown-item" style={{ textDecoration: "none" }}to="#">Orders</Link></li>
+                <li><Link className="dropdown-item" style={{ textDecoration: "none" }}to="#">Wishlist</Link></li>
+                <li><Link className="dropdown-item" style={{ textDecoration: "none" }}to="#">Coupons</Link></li>
+                <li><Link className="dropdown-item" style={{ textDecoration: "none" }}to="#">GiftCard</Link></li>
+                <li><Link className="dropdown-item" style={{ textDecoration: "none" }}to="#">Logout</Link></li>
 
               </ul>
             </div>

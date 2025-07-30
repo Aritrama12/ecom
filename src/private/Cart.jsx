@@ -8,7 +8,7 @@ export default function Cart() {
     <div className='container text-center'>
       <div className='row m-3 justify-content-center align-items-center'>
         <div className="col-sm-12 mb-3">
-          <img src="./img/empty_cart.webp" alt="empty cart" srcset="" height={"200px"} />
+          <img src="./img/empty_cart.webp" alt="empty cart" srcset="" style={{maxWidth:"",height:"200px"}}  />
         </div>
         <div className="col-sm-12 mb-3">
           <p className='fs-4'>Your cart is empty!</p>
