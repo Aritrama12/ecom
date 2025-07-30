@@ -56,8 +56,6 @@ export default function Home() {
           <span className="carousel-control-next-icon" aria-hidden="true" />
           <span className="visually-hidden">Next</span>
         </button>
-
-
       </div>
 
       <Product/>
