@@ -32,12 +32,12 @@ export default function Navbar() {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link style={{ textDecoration: "none" }} className="nav-link active" aria-current="page" to="/">
-                  Home <i class="fa-solid fa-house-user"></i>
+                  Home <i class="fa-solid fa-house-user"/>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link style={{ textDecoration: "none" }} className="nav-link" to="/Signup">
-                  Sign up <i class="fa-solid fa-right-to-bracket"></i>
+                  Sign up <i class="fa-solid fa-right-to-bracket"/>
                 </Link>
               </li>
               <li className="nav-item dropdown">
@@ -54,7 +54,7 @@ export default function Navbar() {
                 <ul className="dropdown-menu">
                   <li>
                     <a style={{ textDecoration: "none" }} className="dropdown-item" to="#">
-                      Notification Preferences<i class="fa-solid fa-bell"></i>
+                      Notification Preferences<i class="fa-solid fa-bell"/>
                     </a>
                   </li>
 
