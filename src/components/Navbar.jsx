@@ -13,7 +13,7 @@ export default function Navbar() {
       >
         <div className="container-fluid">
           <Link style={{ textDecoration: "none" }} className="navbar-brand" to="#">
-            <span className="fst-italic fw-bold"> SLIPMART</span>
+            <span className="fst-italic fw-bold"><i class="fa-solid fa-cart-shopping"/> SLIPMART</span>
           </Link>
 
           <button
