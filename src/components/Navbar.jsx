@@ -13,7 +13,7 @@ export default function Navbar() {
       >
         <div className="container-fluid">
           <Link style={{ textDecoration: "none" }} className="navbar-brand" to="#">
-            <span className="fst-italic fw-bold"><i class="fa-solid fa-cart-shopping"/> SLIPMART</span>
+            <span className="fst-italic fw-bold"><i class="fa-solid fa-cart-shopping" /> SLIPMART</span>
           </Link>
 
           <button
@@ -32,12 +32,12 @@ export default function Navbar() {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link style={{ textDecoration: "none" }} className="nav-link active" aria-current="page" to="/">
-                  Home <i className="fa-solid fa-house-user"/>
+                  Home <i className="fa-solid fa-house-user" />
                 </Link>
               </li>
               <li className="nav-item">
                 <Link style={{ textDecoration: "none" }} className="nav-link" to="/Signup">
-                  Sign up <i className="fa-solid fa-right-to-bracket"/>
+                  Sign up <i className="fa-solid fa-right-to-bracket" />
                 </Link>
               </li>
               <li className="nav-item dropdown">
@@ -54,7 +54,7 @@ export default function Navbar() {
                 <ul className="dropdown-menu">
                   <li>
                     <a style={{ textDecoration: "none" }} className="dropdown-item" to="#">
-                      Notification Preferences<i className="fa-solid fa-bell"/>
+                      Notification Preferences<i className="fa-solid fa-bell" />
                     </a>
                   </li>
 
@@ -109,15 +109,15 @@ export default function Navbar() {
             </button>
             <div className="btn-group dropstart">
               <button type="button" className="btn btn-danger dropdown-toggle ms-2" data-bs-toggle="dropdown" aria-expanded="false">
-                <i className="fa-solid fa-bars "/>
+                <i className="fa-solid fa-bars " />
               </button>
               <ul className="dropdown-menu ">
-                <li><Link className="dropdown-item" style={{ textDecoration: "none" }}to="#">My profile</Link></li>
-                <li><Link className="dropdown-item" style={{ textDecoration: "none" }}to="#">Orders</Link></li>
-                <li><Link className="dropdown-item" style={{ textDecoration: "none" }}to="#">Wishlist</Link></li>
-                <li><Link className="dropdown-item" style={{ textDecoration: "none" }}to="#">Coupons</Link></li>
-                <li><Link className="dropdown-item" style={{ textDecoration: "none" }}to="#">GiftCard</Link></li>
-                <li><Link className="dropdown-item" style={{ textDecoration: "none" }}to="#">Logout</Link></li>
+                <li><Link className="dropdown-item" style={{ textDecoration: "none" }} to="#">My profile</Link></li>
+                <li><Link className="dropdown-item" style={{ textDecoration: "none" }} to="#">Orders</Link></li>
+                <li><Link className="dropdown-item" style={{ textDecoration: "none" }} to="#">Wishlist</Link></li>
+                <li><Link className="dropdown-item" style={{ textDecoration: "none" }} to="#">Coupons</Link></li>
+                <li><Link className="dropdown-item" style={{ textDecoration: "none" }} to="#">GiftCard</Link></li>
+                <li><Link className="dropdown-item" style={{ textDecoration: "none" }} to="#">Logout</Link></li>
 
               </ul>
             </div>
