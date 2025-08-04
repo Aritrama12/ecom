@@ -109,7 +109,8 @@ export default function Productdetails() {
               <li>View 3 more offers</li>
             </ul>
             <p className="card-text">
-              <small className="text-body-secondary">3.9★ | 675 Ratings & 180 Reviews</small>
+              <small className="text-body-secondary">Review: <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></small>
             </p>
           </div>
         </div>
