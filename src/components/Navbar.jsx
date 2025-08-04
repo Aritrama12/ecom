@@ -32,12 +32,12 @@ export default function Navbar() {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link style={{ textDecoration: "none" }} className="nav-link active" aria-current="page" to="/">
-                  Home <i class="fa-solid fa-house-user"/>
+                  Home <i className="fa-solid fa-house-user"/>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link style={{ textDecoration: "none" }} className="nav-link" to="/Signup">
-                  Sign up <i class="fa-solid fa-right-to-bracket"/>
+                  Sign up <i className="fa-solid fa-right-to-bracket"/>
                 </Link>
               </li>
               <li className="nav-item dropdown">
@@ -54,13 +54,13 @@ export default function Navbar() {
                 <ul className="dropdown-menu">
                   <li>
                     <a style={{ textDecoration: "none" }} className="dropdown-item" to="#">
-                      Notification Preferences<i class="fa-solid fa-bell"/>
+                      Notification Preferences<i className="fa-solid fa-bell"/>
                     </a>
                   </li>
 
                   <li>
                     <a style={{ textDecoration: "none" }} className="dropdown-item" to="#">
-                      24*7 Customer Help <i class="fa-solid fa-circle-question"></i>
+                      24*7 Customer Help <i className="fa-solid fa-circle-question"></i>
                     </a>
                   </li>
 
@@ -70,14 +70,14 @@ export default function Navbar() {
 
                   <li>
                     <a style={{ textDecoration: "none" }} className="dropdown-item" to="#">
-                      Advertise<i class="fa-solid fa-rectangle-ad"></i>
+                      Advertise<i className="fa-solid fa-rectangle-ad"></i>
                     </a>
                   </li>
                 </ul>
               </li>
               <li className="nav-item">
                 <Link style={{ textDecoration: "none" }} className="nav-link" to="/cart">
-                  Add to cart <i class="fa-solid fa-cart-arrow-down"></i>
+                  Add to cart <i className="fa-solid fa-cart-arrow-down"></i>
                 </Link>
               </li>
             </ul>
@@ -95,7 +95,7 @@ export default function Navbar() {
                   type="button"
                   id="button-addon2"
                 >
-                  search<i class="fa-brands fa-searchengin"> </i>
+                  search<i className="fa-brands fa-searchengin"> </i>
                 </button>
               </div>
             </div>
@@ -105,7 +105,7 @@ export default function Navbar() {
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
             >
-              Log in<i class="fa-solid fa-user"></i>
+              Log in<i className="fa-solid fa-user"></i>
             </button>
             <div className="btn-group dropstart">
               <button type="button" className="btn btn-danger dropdown-toggle ms-2" data-bs-toggle="dropdown" aria-expanded="false">
