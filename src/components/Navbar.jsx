@@ -9,7 +9,7 @@ export default function Navbar() {
 
       <nav
         className="navbar navbar-expand-lg"
-        style={{ backgroundColor: "#0c63a1ff" }}
+        style={{ backgroundColor: "#eeedaaff" }}
       >
         <div className="container-fluid">
           <Link style={{ textDecoration: "none" }} className="navbar-brand" to="#">

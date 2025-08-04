@@ -26,16 +26,25 @@ export default function Home() {
             data-bs-slide-to={2}
             aria-label="Slide 3"
           />
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to={3}
+            aria-label="Slide 4"
+          />
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src="./img/5b309e98775e22e4.webp" className="d-block w-100"  alt="Bed" />
+            <img src="./img/28ce80d034b9c679.webp" className="d-block w-100"  alt="Bed" />
           </div>
           <div className="carousel-item">
-            <img src="./img/59cc03576ab30951.webp" className="d-block w-100" alt="Sofa" />
+            <img src="./img/c9c7b904fae51a5a.webp" className="d-block w-100" alt="Sofa" />
           </div>
           <div className="carousel-item">
-            <img src="./img/74f0ad81e44e6e6f.webp" className="d-block w-100" alt="Plane" />
+            <img src="./img/006c133753e644da.webp" className="d-block w-100" alt="Plane" />
+          </div>
+          <div className="carousel-item">
+            <img src="./img/06418e5fbc0a84a5.webp" className="d-block w-100" alt="Plane" />
           </div>
         </div>
         <button
@@ -57,8 +66,10 @@ export default function Home() {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
+      
 
       <Product/>
+      
     </>
   )
 }
