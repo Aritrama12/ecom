@@ -7,6 +7,7 @@ import Cart from "./private/Cart";
 import Productdetails from "./public/Productdetails";
 import Buynow from "./private/Buynow";
 import Order from "./private/Order";
+import Wishlist from "./private/Wishlist";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
     <Route path="/Product"element={<> <Navbar/><Productdetails/></>}/>
     <Route path="/Buynow"element={<> <Navbar/><Buynow/></>}/>
     <Route path="/Order"element={<> <Navbar/><Order/></>}/>
+    <Route path="/Wishlist"element={<> <Navbar/><Wishlist/></>}/>
 
 
    </Routes>
