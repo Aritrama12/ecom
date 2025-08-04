@@ -29,7 +29,7 @@ export default function Home() {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src="./img/5b309e98775e22e4.webp" className="d-block w-100" alt="Bed" />
+            <img src="./img/5b309e98775e22e4.webp" className="d-block w-100"  alt="Bed" />
           </div>
           <div className="carousel-item">
             <img src="./img/59cc03576ab30951.webp" className="d-block w-100" alt="Sofa" />
