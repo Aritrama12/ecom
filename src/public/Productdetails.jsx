@@ -99,13 +99,7 @@ export default function Productdetails() {
                 ₹{product.original_price}
               </span>{" "}
               {product.discount} off
-            </p>
-            <p className="card-text">+ ₹29 Protect Promise Fee Learn more</p>
-            <p className="card-text">Secure delivery by 6 Aug, Wednesday</p>
-            <p className="card-text">Coupons for you</p>
-            <p className="card-text">
-              Special Price: Get extra 7% off on 1 item (price inclusive of cashback/coupon)
-            </p>
+              </p>
             <p className="card-text">Available offers:</p>
             <ul>
               <li>Bank Offer: 5% cashback on Flipkart</li>
