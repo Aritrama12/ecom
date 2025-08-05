@@ -76,11 +76,15 @@ export default function Cart() {
                 </>
               ) : (
                 <>
-                  <div className="col-sm-12 mb-3">
-                    <button type="submit" className="btn btn-danger">
-                      Login
-                    </button>
-                  </div>
+                  <div className="text-center mt-3">
+                  <a
+                    href="/Login"
+                    className="text-primary fw-bold"
+                    style={{ textDecoration: "none" }}
+                  >
+                    Login
+                  </a>
+                </div>
                 </>
               )}
             </div>
