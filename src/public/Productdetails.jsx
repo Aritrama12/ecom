@@ -96,10 +96,9 @@ export default function Productdetails() {
                 <h5 className="card-title">{product.product_title}</h5>
                 <p className="card-text">
                   ₹{product.discounted_price}{" "}
-                  <span className="text-decoration-line-through">
-                    ₹{product.price}
+                  <span className="">
+                    {product.price}
                   </span>{" "}
-                  {product.discount} off
                 </p>
                 <p className="card-text">Available offers:</p>
                 <ul>

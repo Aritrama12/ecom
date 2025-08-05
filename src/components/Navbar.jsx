@@ -77,7 +77,7 @@ export default function Navbar() {
               </li>
               <li className="nav-item">
                 <Link style={{ textDecoration: "none" }} className="nav-link" to="/cart">
-                  Add to cart <i className="fa-solid fa-cart-arrow-down"></i>
+                  Cart <i className="fa-solid fa-cart-arrow-down"></i>
                 </Link>
               </li>
             </ul>
