@@ -1,94 +1,178 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import Product from '../public/Product'
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
-  const [Auth, setAuth] = useState("true")
+  const [Auth, setAuth] = useState(true);
+  const [cart, setCart] = useState([]);
 
-  const cart = JSON.parse(localStorage.getItem("cart")).length
+  useEffect(() => {
+    const fetchCart = () => {
+      const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+      setCart(savedCart);
+      setAuth(savedCart.length > 0);
+    };
+
+    fetchCart();
+
+    window.addEventListener("cartUpdated", fetchCart);
+
+    return () => {
+      window.removeEventListener("cartUpdated", fetchCart);
+    };
+  }, []);
 
   const updateCartInLocalStorage = (id, newQuantity) => {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const productIndex = cart.findImdex((item) => item.id === id);
-    if (productIndex !== -1) {
-      cart[productIndex].quantity = newQuantity;
+    let updatedCart = [...cart];
+    const index = updatedCart.findIndex((item) => item.id === id);
+
+    if (newQuantity > 0) {
+      if (index !== -1) {
+        updatedCart[index].quantity = newQuantity;
+      }
     } else {
-      console.error("Product not found in cart");
-      return;
+      if (index !== -1) {
+        updatedCart.splice(index, 1);
+      }
     }
-    localStorage.setItem("cart", JSON.stringify(cart));
+
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    window.dispatchEvent(new Event("cartUpdated"));
   };
+
   const handleIncrement = (id, quantity) => {
-    const newQty = quantity + 1;
-    updateCartInLocalStorage(id, newQty);
+    updateCartInLocalStorage(id, quantity + 1);
   };
+
   const handleDecrement = (id, quantity) => {
-    const newQty = quantity - 1;
-    updateCartInLocalStorage(id, newQty);
+    updateCartInLocalStorage(id, quantity - 1);
   };
-}
 
-return (
-  <>
-    {cart === 0 ?
-      (<>
-        <div className='container text-center'>
-          <div className='row m-3 justify-content-center align-items-center'>
-            <div className="col-sm-12 mb-3">
-              <img src="./img/empty_cart.webp" alt="empty cart" srcset="" style={{ maxWidth: "", height: "200px" }} />
+  return (
+    <>
+      {cart?.length === 0 ? (
+        <>
+          <div className="container text-center">
+            <div className="row m-3 justify-content-center align-items-center">
+              <div className="col-sm-12 mb-3">
+                <img
+                  src="/img/empty_cart.webp"
+                  alt="empty cart"
+                  srcset=""
+                  style={{ maxWidth: "", height: "200px" }}
+                />
+              </div>
+              <div className="col-sm-12 mb-3">
+                <p className="fs-4">Your cart is empty!</p>
+                <p className="fs-6">Add items to it now.</p>
+              </div>
+              {Auth ? (
+                <>
+                  <div className="col-sm-12 mb-3">
+                    <button type="submit" className="btn btn-success">
+                      Shop Now
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="col-sm-12 mb-3">
+                    <button type="submit" className="btn btn-danger">
+                      Login
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
-            <div className="col-sm-12 mb-3">
-              <p className='fs-4'>Your cart is empty!</p>
-              <p className='fs-6'>Add items to it now.</p>
-            </div>
-            {Auth === "true" ?
-              (<>
-                <div className="col-sm-12 mb-3">
-                  <button type="submit" className="btn btn-success">
-                    Shop Now
-                  </button>
-                </div>
-              </>) :
-              (<>
-                <div className="col-sm-12 mb-3">
-                  <button type="submit" className="btn btn-danger">
-                    Login
-                  </button>
-                </div>
-              </>)
-            }
           </div>
-        </div>
-      </>) : (<>
-        <div className='container text-center'>
-          <>
-            <meta charSet="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>Shopping Cart</title>
-            <link rel="stylesheet" href="styles.css" />
-            <div className="cart-container">
-              <h1>Shopping Cart</h1>
-              <div className="cart-items">
-                <div className="cart-item">
-                  <p>Product 1</p>
-                  <input type="number" className="quantity" defaultValue={Product} min={ } />
-                  <button className="remove-btn">Remove</button>
-                </div>
-                <div className="cart-item">
-                  <input type="number" className="quantity" defaultValue={1} min={1} />
-                  <button className="remove-btn">Remove</button>
-                </div>
+        </>
+      ) : (
+        <>
+          <div className="container py-5">
+            <h2 className="mb-4 text-center">Your Shopping Cart</h2>
+            <div className="row">
+              {/* Cart Items */}
+              <div className="col-md-8 mb-2">
+                {cart.map((item) => (
+                  <div
+                    key={item.id}
+                    className="card shadow-sm p-3 d-flex flex-row align-items-center mb-3"
+                  >
+                    <img
+                      src={item.img}
+                      alt={item.name}
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                        objectFit: "cover",
+                      }}
+                      className="rounded"
+                    />
+                    <div className="ms-3 flex-grow-1">
+                      <h5 className="mb-1">{item.name}</h5>
+                      <p className="mb-1 text-muted">Price: ₹{item.price}</p>
+                      <div className="btn-group" role="group">
+                        <button
+                          className="btn btn-danger"
+                          onClick={() =>
+                            handleIncrement(item.id, item.quantity)
+                          }
+                        >
+                          +
+                        </button>
+                        <div className="input-group-text">
+                          {item.quantity}
+                        </div>
+                        <button
+                          className="btn btn-success"
+                          onClick={() =>
+                            handleDecrement(item.id, item.quantity)
+                          }
+                        >
+                          -
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className="cart-total">
-                <h3>
-                </h3>
+
+              {/* Order Summary */}
+              <div className="col-md-4 mb-2 h-100">
+                <div className="card shadow-sm p-3">
+                  <h5 className="mb-3">Order Summary</h5>
+                  <ul className="list-group list-group-flush">
+                    {cart.map((item) => (
+                      <li
+                        key={item.id}
+                        className="list-group-item d-flex justify-content-between align-items-center"
+                      >
+                        {item.name}
+                        <span>₹{item.price * item.quantity}</span>
+                      </li>
+                    ))}
+                    <li className="list-group-item d-flex justify-content-between align-items-center">
+                      <strong>Total</strong>
+                      <strong>
+                        ₹
+                        {cart.reduce(
+                          (total, item) => total + item.price * item.quantity,
+                          0
+                        )}
+                      </strong>
+                    </li>
+                  </ul>
+                  <div className="text-end mt-4">
+                    <Link to="/checkout" className="btn btn-success">
+                      Checkout
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
-          </>
-
-
-        </div>
-      </>)}
-  </>
-)
-
+          </div>
+        </>
+      )}
+    </>
+  );
+}
