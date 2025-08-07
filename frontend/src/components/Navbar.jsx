@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Signup from "../public/Signup";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fontawesome/react-fontawesome";
 import Login from "../public/Login";
 export default function Navbar() {
   return (
