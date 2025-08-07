@@ -93,7 +93,6 @@ const getUserReview = async (userId ) => {
     const review = await collection.find({ userId}).toArray();
     return review;
 }
- 
 const setUserReview = async (userId, product_id , review) => {
     const db = await getUserDatabase();
     const collection = db.collection('review');
@@ -109,7 +108,6 @@ const setUserWishlist = async (userId, product_id) => {
     const result = await collection.insertOne({ _id: WishlistObjectId, userId, product_id});
     return result
 }
-
 const getUserWishlist = async (userId) => {
     const db = await getUserDatabase();
     const collection = db.collection('wishlist');

@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const { createUser, loginUser, getUSerById, setUserAddress, getUserOrder, setUserOrder, setUserCart, getUserCart, getUserAddress, setUserReview } = require('../models/userModule');
+const { createUser, loginUser, getUSerById, setUserAddress, getUserOrder, setUserOrder, setUserCart, getUserCart, getUserAddress, setUserReview, setUserWishlist } = require('../models/userModule');
 const express = require('express');
 
 const registerUser = async (req, res) => {
@@ -129,7 +129,7 @@ const userReview = async (req, res) => {
     }
 };
 
-const setUserWishlist = async (req, res) => {
+const UserWishlist = async (req, res) => {
     const { userId, product_id} = req.body;
     try {
         const result = await setUserWishlist(userId, product_id);
@@ -152,5 +152,5 @@ module.exports = {
     setuserOrder,
     userCart,
     setUserReview,
-    setUserWishlist
+    UserWishlist
 };
