@@ -85,7 +85,7 @@ export default function Productdetails() {
                       </button>
                     </div>
                   )}
-                  <button className="btn btn-primary m-2">BUY NOW</button>
+                  <Link to="/buynow" style={{textDecoration:"none"}} className="btn btn-success m-2">BUY NOW</Link>
                 </div>
               </div>
             </div>

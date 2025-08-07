@@ -113,8 +113,8 @@ export default function Navbar() {
               </button>
               <ul className="dropdown-menu ">
                 <li><Link className="dropdown-item" style={{ textDecoration: "none" }} to="#">My profile</Link></li>
-                <li><Link className="dropdown-item" style={{ textDecoration: "none" }} to="#">Orders</Link></li>
-                <li><Link className="dropdown-item" style={{ textDecoration: "none" }} to="#">Wishlist</Link></li>
+                <li><Link className="dropdown-item" style={{ textDecoration: "none" }} to="/Order">Orders</Link></li>
+                <li><Link className="dropdown-item" style={{ textDecoration: "none" }} to="/Wishlist">Wishlist</Link></li>
                 <li><Link className="dropdown-item" style={{ textDecoration: "none" }} to="#">Coupons</Link></li>
                 <li><Link className="dropdown-item" style={{ textDecoration: "none" }} to="#">GiftCard</Link></li>
                 <li><Link className="dropdown-item" style={{ textDecoration: "none" }} to="#">Logout</Link></li>

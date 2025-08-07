@@ -167,7 +167,7 @@ export default function Cart() {
                     </li>
                   </ul>
                   <div className="text-end mt-4">
-                    <Link to="/checkout" className="btn btn-success">
+                    <Link to="/Buynow" style={{textDecoration:"none"}} className="btn btn-success">
                       Checkout
                     </Link>
                   </div>

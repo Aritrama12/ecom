@@ -9,6 +9,8 @@ import Buynow from "./private/Buynow";
 import Order from "./private/Order";
 import Wishlist from "./private/Wishlist";
 import  Footer from "./components/Footer";
+import PaymentPage from "./private/PaymentForm";
+
 function App() {
 <h1>
 </h1>
