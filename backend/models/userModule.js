@@ -63,11 +63,31 @@ const getUserAddress = async (userId) => {
     return address;
 }
 
+const setUserOrder = async (userId, product_id, address_id, product_quantity, payment_method, total_amount, discount_amount, timestamp ) => {
+    const db = await getUserDatabase();
+    const collection = db.collection('order');
+    const OrderObjectId = new ObjectId().toString();
+    const result = await collection.insertOne({ _id: OrderObjectId, userId, product_id, address_id, product_quantity, payment_method, total_amount, discount_amount, timestamp});
+    return result
+}
+
+const getUserOrder = async (userId) => {
+    const db = await getUserDatabase();
+    const collection = db.collection('order');
+    const order = await collection.findOne({ userId });
+    if (!order) {
+        throw new Error('Order not found');
+    }
+    return order;
+}
+
 module.exports = {
     createUser,
     loginUser,
     getUSerById,
     setUserAddress,
-    getUserAddress
+    getUserAddress,
+    setUserOrder,
+    getUserOrder
 };
 

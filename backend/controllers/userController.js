@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const { createUser, loginUser, getUSerById, setUserAddress } = require('../models/userModule');
+const { createUser, loginUser, getUSerById, setUserAddress, getUserOrder, setUserOrder } = require('../models/userModule');
 const express = require('express');
 
 const registerUser = async (req, res) => {
@@ -54,7 +54,9 @@ const getUserDetails = async (req, res) => {
     try {
         const userdetails = await getUSerById(id);
         const userAddress = await getUserAddress(id);
+        const userOrder = await getUserOrder(id)
         userdetails.address = userAddress;
+        userdetails.order = userOrder;
         if (userdetails) {
             res.status(200).json({ userdetails });
         }
@@ -63,7 +65,7 @@ const getUserDetails = async (req, res) => {
     }
 };
 
-const userAddress = async (req, res) => {
+const setuserAddress = async (req, res) => {
     const { userId, pin, address, city, state, district } = req.body;
     try {
         const result = await setUserAddress(userId, pin, address, city, state, district);
@@ -78,9 +80,25 @@ const userAddress = async (req, res) => {
     }
 };
 
+const setuserOrder = async (req, res) => {
+    const { userId, product_id, address_id, product_quantity, payment_method, total_amount, discount_amount, timestamp } = req.body;
+    try {
+        const result = await setUserOrder(userId, product_id, address_id, product_quantity, payment_method, total_amount, discount_amount, timestamp);
+        if (result.acknowledged === true) {
+            res.status(201).json({ message: 'Order added successfully' });
+        }   else {
+            res.status(400).json({ message: 'Order addition failed' });
+        }
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
 module.exports = {
     registerUser,
     authUser,
     getUserDetails,
-    userAddress
+    setuserAddress,
+    setuserOrder
 };
