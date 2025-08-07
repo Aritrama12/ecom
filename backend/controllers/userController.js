@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const { createUser, loginUser, getUSerById } = require('../models/userModule');
+const { createUser, loginUser, getUSerById, setUserAddress } = require('../models/userModule');
 const express = require('express');
 
 const registerUser = async (req, res) => {
@@ -52,11 +52,28 @@ const authUser = async (req, res) => {
 const getUserDetails = async (req, res) => {
     const { id } = req.body;
     try {
-        const user = await getUSerById(id);
-        if (user) {
-            res.status(200).json({ user });
+        const userdetails = await getUSerById(id);
+        const userAddress = await getUserAddress(id);
+        userdetails.address = userAddress;
+        if (userdetails) {
+            res.status(200).json({ userdetails });
         }
     } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+const userAddress = async (req, res) => {
+    const { userId, pin, address, city, state, district } = req.body;
+    try {
+        const result = await setUserAddress(userId, pin, address, city, state, district);
+        if (result.acknowledged === true) {
+            res.status(201).json({ message: 'Address added successfully' });
+        }   else {
+            res.status(400).json({ message: 'Address addition failed' });
+        }
+    }
+    catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
@@ -64,5 +81,6 @@ const getUserDetails = async (req, res) => {
 module.exports = {
     registerUser,
     authUser,
-    getUserDetails
+    getUserDetails,
+    userAddress
 };

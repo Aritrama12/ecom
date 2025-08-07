@@ -45,9 +45,29 @@ const getUSerById = async (_id) => {
     return user;
 }
 
+const setUserAddress = async (userId, pin, address, city, state, district) => {
+    const db = await getUserDatabase();
+    const collection = db.collection('address');
+    const AddressObjectId = new ObjectId().toString();
+    const result = await collection.insertOne({ _id: AddressObjectId, userId, pin, address, city, state, district });
+    return result
+}
+
+const getUserAddress = async (userId) => {
+    const db = await getUserDatabase();
+    const collection = db.collection('address');
+    const address = await collection.findOne({ userId });
+    if (!address) {
+        throw new Error('Address not found');
+    }
+    return address;
+}
+
 module.exports = {
     createUser,
     loginUser,
-    getUSerById
+    getUSerById,
+    setUserAddress,
+    getUserAddress
 };
 
