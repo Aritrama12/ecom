@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const { createUser, loginUser, getUSerById, setUserAddress, getUserOrder, setUserOrder } = require('../models/userModule');
+const { createUser, loginUser, getUSerById, setUserAddress, getUserOrder, setUserOrder, setUserCart, getUserCart, getUserAddress, setUserReview } = require('../models/userModule');
 const express = require('express');
 
 const registerUser = async (req, res) => {
@@ -55,8 +55,11 @@ const getUserDetails = async (req, res) => {
         const userdetails = await getUSerById(id);
         const userAddress = await getUserAddress(id);
         const userOrder = await getUserOrder(id)
-        userdetails.address = userAddress;
+        const userCart = await getUserCart(id);
         userdetails.order = userOrder;
+        userdetails.address = userAddress;
+        userdetails.cart = userCart;
+        userdetails.password = ""; // Exclude password from response
         if (userdetails) {
             res.status(200).json({ userdetails });
         }
@@ -71,7 +74,7 @@ const setuserAddress = async (req, res) => {
         const result = await setUserAddress(userId, pin, address, city, state, district);
         if (result.acknowledged === true) {
             res.status(201).json({ message: 'Address added successfully' });
-        }   else {
+        } else {
             res.status(400).json({ message: 'Address addition failed' });
         }
     }
@@ -81,13 +84,44 @@ const setuserAddress = async (req, res) => {
 };
 
 const setuserOrder = async (req, res) => {
-    const { userId, product_id, address_id, product_quantity, payment_method, total_amount, discount_amount, timestamp } = req.body;
+    const { userId, product_id, address_id, product_quantity, payment_method, total_amount, discount_amount } = req.body;
     try {
-        const result = await setUserOrder(userId, product_id, address_id, product_quantity, payment_method, total_amount, discount_amount, timestamp);
+        const result = await setUserOrder(userId, product_id, address_id, product_quantity, payment_method, total_amount, discount_amount);
         if (result.acknowledged === true) {
             res.status(201).json({ message: 'Order added successfully' });
-        }   else {
+        } else {
             res.status(400).json({ message: 'Order addition failed' });
+
+        }
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+const userCart = async (req, res) => {
+    const { userId, product_id, product_quantity } = req.body;
+    try {
+        const result = await setUserCart(userId, product_id, product_quantity);
+        if (result.acknowledged === true) {
+            res.status(201).json({ message: 'Cart added successfully' });
+        } else {
+            res.status(400).json({ message: 'Cart addition failed' });
+        }
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+ 
+const userReview = async (req, res) => {
+    const { userId, product_id, review } = req.body;
+    try {
+        const result = await setUserReview(userId, product_id, review);
+        if (result.acknowledged === true) {
+            res.status(201).json({ message: 'Review added successfully' });
+        } else {
+            res.status(400).json({ message: 'Review addition failed' });
         }
     }
     catch (error) {
@@ -100,5 +134,7 @@ module.exports = {
     authUser,
     getUserDetails,
     setuserAddress,
-    setuserOrder
+    setuserOrder,
+    userCart,
+    setUserReview 
 };

@@ -7,7 +7,6 @@ const createUser = async (fullname, contact, gender, email, password) => {
     const collection = db.collection('customer');
     const newObjectId = new ObjectId().toString();
     const hashedPassword = await bcryptjs.hash(password, 10);
-    const hpassword = hashedPassword;
     await collection.createIndex({ email: 1 }, { unique: true });
     const userData = {
         _id: newObjectId,
@@ -15,7 +14,7 @@ const createUser = async (fullname, contact, gender, email, password) => {
         contact,
         gender,
         email,
-        hpassword,
+        password: hashedPassword,
     };
     const result = await collection.insertOne(userData);
     return result;
@@ -28,7 +27,7 @@ const loginUser = async (email, password) => {
     if (!user) {
         throw new Error('User not found');
     }
-    const isPasswordValid = await bcryptjs.compare(password, user.hpassword);
+    const isPasswordValid = await bcryptjs.compare(password, user.password);
     if (!isPasswordValid) {
         throw new Error('Invalid password');
     }
@@ -52,33 +51,55 @@ const setUserAddress = async (userId, pin, address, city, state, district) => {
     const result = await collection.insertOne({ _id: AddressObjectId, userId, pin, address, city, state, district });
     return result
 }
-
 const getUserAddress = async (userId) => {
     const db = await getUserDatabase();
     const collection = db.collection('address');
-    const address = await collection.findOne({ userId });
-    if (!address) {
-        throw new Error('Address not found');
-    }
+    const address = await collection.find({ userId }).toArray();
     return address;
 }
-
-const setUserOrder = async (userId, product_id, address_id, product_quantity, payment_method, total_amount, discount_amount, timestamp ) => {
+  
+const getUserCart = async (userId) => {
     const db = await getUserDatabase();
-    const collection = db.collection('order');
-    const OrderObjectId = new ObjectId().toString();
-    const result = await collection.insertOne({ _id: OrderObjectId, userId, product_id, address_id, product_quantity, payment_method, total_amount, discount_amount, timestamp});
+    const collection = db.collection('cart');
+    const cart = await collection.find({ userId }).toArray();
+    return cart;
+}
+const setUserCart = async (userId, product_id, quantity) => {
+    const db = await getUserDatabase();
+    const collection = db.collection('cart');
+    const CartObjectId = new ObjectId().toString();
+    const result = await collection.insertOne({ _id: CartObjectId, userId, product_id, quantity });
     return result
 }
 
+const setUserOrder = async (userId, product_id, address_id, product_quantity, payment_method, total_amount, discount_amount ) => {
+    const db = await getUserDatabase();
+    const collection = db.collection('order');
+    const OrderObjectId = new ObjectId().toString();
+    const timestamp = new Date().toLocaleString();
+    const result = await collection.insertOne({ _id: OrderObjectId, userId, product_id, address_id, product_quantity, payment_method, total_amount, discount_amount, timestamp});
+    return result
+}
 const getUserOrder = async (userId) => {
     const db = await getUserDatabase();
     const collection = db.collection('order');
-    const order = await collection.findOne({ userId });
-    if (!order) {
-        throw new Error('Order not found');
-    }
+    const order = await collection.find({ userId }).toArray();
     return order;
+}
+ 
+const getUserReview = async (userId ) => {
+    const db = await getUserDatabase();
+    const collection = db.collection('review');
+    const review = await collection.find({ userId}).toArray();
+    return review;
+}
+ 
+const setUserReview = async (userId, product_id , review) => {
+    const db = await getUserDatabase();
+    const collection = db.collection('review');
+    const ReviewObjectId = new ObjectId().toString();
+    const result = await collection.insertOne({ _id: ReviewObjectId, userId, product_id, review });
+    return result
 }
 
 module.exports = {
@@ -88,6 +109,10 @@ module.exports = {
     setUserAddress,
     getUserAddress,
     setUserOrder,
-    getUserOrder
+    getUserOrder,
+    getUserCart,
+    setUserCart,
+    getUserReview,
+    setUserReview
 };
 
