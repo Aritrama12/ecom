@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar"
 import Home from "./public/Home";
 import Signup from "./public/Signup";
@@ -8,8 +8,11 @@ import Productdetails from "./public/Productdetails";
 import Buynow from "./private/Buynow";
 import Order from "./private/Order";
 import Wishlist from "./private/Wishlist";
-import  Footer from "./components/Footer";
-import PaymentPage from "./private/PaymentForm";
+import Footer from "./components/Footer";
+import PaymentForm from './private/PaymentForm';
+import Privacypolicy from "./public/Privacypolicy";
+import TnC from "./public/TnC";
+
 
 function App() {
 <h1>
@@ -44,7 +47,10 @@ function App() {
   localStorage.setItem("product",JSON.stringify(products))
 
   return (
+    <>
+      
     <Routes>
+
       <Route path="/" exact element={<> <Navbar /><Home /></>} />
       <Route path="/*" exact element={<> <Navbar /><Home /></>} />
       <Route path="/signup" exact element={<> <Navbar /><Signup /></>} />
@@ -55,10 +61,17 @@ function App() {
       <Route path="/Order" exact element={<> <Navbar /><Order /></>} />
       <Route path="/Wishlist" exact element={<> <Navbar /><Wishlist /></>} />
       <Route path="/Footer" exact element={<> <Navbar /><Footer /></>} />
+      <Route path="/PaymentPage" exact element={<> <Navbar /><PaymentForm /></>} />
+      <Route path="/Privacypolicy" exact element={<> <Footer /><Privacypolicy /></>} />
+      <Route path="/TnC" exact element={<> <Footer /><TnC/></>} />
     
     
     </Routes>
-  );
+    
+    <Footer/>
+
+    </>
+      );
 }
 
 export default App;

@@ -1,4 +1,5 @@
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebook,
@@ -6,6 +7,7 @@ import {
   faInstagram,
   faLinkedinIn
 } from '@fortawesome/free-brands-svg-icons';
+import Privacypolicy from '../public/Privacypolicy';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -21,8 +23,9 @@ const Footer = () => {
             <p className="mb-0 small">Registered Office: Sonarpur, South 24 Parganas, West Bengal</p>
           </div>
           <div className="col-md-6 text-center text-md-end">
-            <a href="/privacy" className="text-light text-decoration-none me-3 hover-underline">Privacy Policy</a>
-            <a href="/TnC" className="text-light text-decoration-none hover-underline">Terms & Conditions</a>
+            <Link to="/Privacypolicy" className="text-light text-decoration-none me-3 hover-underline">Privacy Policy</Link>
+                     
+            <Link to="/TnC" className="text-light text-decoration-none hover-underline">Terms & Conditions</Link>
           </div>
         </div>
         <hr className="border-secondary" />
