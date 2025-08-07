@@ -1,11 +1,11 @@
 
-import { FontAwesomeIcon } from '@fontawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faFacebookF,
+  faFacebook,
   faTwitter,
   faInstagram,
   faLinkedinIn
-} from '@fontawesome/free-brands-svg-icons';
+} from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,7 +15,7 @@ const Footer = () => {
       <div className="container">
         <div className="row align-items-center mb-3">
           <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-            <h4 className="fw-bold mb-1">Eshop</h4>
+            <h4 className="fw-bold mb-1">SLIPMART</h4>
             <p className="mb-0 small">&copy; {currentYear} Slipmart. All rights reserved.</p>
             <p className="mb-0 small">Mail Us: help@gmail.com</p>
             <p className="mb-0 small">Registered Office: Sonarpur, South 24 Parganas, West Bengal</p>
@@ -30,7 +30,7 @@ const Footer = () => {
           <div className="col text-center">
             <span className="me-3">Follow us:</span>
             <a href="https://facebook.com" className="text-light me-2" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faFacebookF} />
+              <FontAwesomeIcon icon={faFacebook} />
             </a>
             <a href="https://twitter.com" className="text-light me-2" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faTwitter} />
