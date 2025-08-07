@@ -102,6 +102,21 @@ const setUserReview = async (userId, product_id , review) => {
     return result
 }
 
+const setUserWishlist = async (userId, product_id) => {
+    const db = await getUserDatabase();
+    const collection = db.collection('wishlist');
+    const WishlistObjectId = new ObjectId().toString();
+    const result = await collection.insertOne({ _id: WishlistObjectId, userId, product_id});
+    return result
+}
+
+const getUserWishlist = async (userId) => {
+    const db = await getUserDatabase();
+    const collection = db.collection('wishlist');
+    const wishlist = await collection.find({ userId }).toArray();
+    return wishlist;
+}
+
 module.exports = {
     createUser,
     loginUser,
@@ -113,6 +128,8 @@ module.exports = {
     getUserCart,
     setUserCart,
     getUserReview,
-    setUserReview
+    setUserReview,
+    setUserWishlist,
+    getUserWishlist
 };
 

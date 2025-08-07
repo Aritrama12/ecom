@@ -129,6 +129,21 @@ const userReview = async (req, res) => {
     }
 };
 
+const setUserWishlist = async (req, res) => {
+    const { userId, product_id} = req.body;
+    try {
+        const result = await setUserWishlist(userId, product_id);
+        if (result.acknowledged === true) {
+            res.status(201).json({ message: 'Wishlist added successfully' });
+        }   else {
+            res.status(400).json({ message: 'Wishlist addition failed' });
+        }
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
 module.exports = {
     registerUser,
     authUser,
@@ -136,5 +151,6 @@ module.exports = {
     setuserAddress,
     setuserOrder,
     userCart,
-    setUserReview 
+    setUserReview,
+    setUserWishlist
 };
