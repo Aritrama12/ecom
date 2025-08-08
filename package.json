@@ -30,8 +30,10 @@
   },
   "scripts": {
     "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+    "build": "concurrently \"npm run build:frontend\" \"npm run start:backend\"",
     "start:frontend": "cd frontend && react-scripts start",
-    "start:backend": "cd backend && node server.js"
+    "start:backend": "cd backend && node server.js",
+    "build:frontend": "cd frontend && react-scripts build"
   },
   "eslintConfig": {
     "extends": [
