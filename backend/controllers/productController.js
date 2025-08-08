@@ -3,6 +3,9 @@ const { createProduct, getProductById, getProducts } = require('../models/produc
 
 const addProduct = async (req, res) => {
     const { name, price, description, category, image, quantity, discount_amount } = req.body;
+    if ( !name || !price || !description || !category || !image || !quantity || !discount_amount) {
+        return res.status(400).json({ message: 'Input correct json data' });
+    }
     try {
         const result = await createProduct(name, price, description, category, image, quantity, discount_amount);
         if (result.acknowledged === true) {
@@ -18,6 +21,9 @@ const addProduct = async (req, res) => {
 
 const getProduct = async (req, res) => {
     const {id} = req.body;
+    if ( !id) {
+        return res.status(400).json({ message: 'Input correct json data' });
+    }
     try{
         const result = await getProductById(id);
         if (result) {
