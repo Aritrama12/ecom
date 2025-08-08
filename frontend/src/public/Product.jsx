@@ -11,7 +11,7 @@ export default function Product() {
         <div className="row m-3">
           {products.map((product) => (
             <div key={product.id} className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
-              <Link to={`/product/${product.id}`} style={{ textDecoration: "None" }} className="col-sm-3 mb-3" key={product.id}>
+              <Link to={`/product/${product._id}`} style={{ textDecoration: "None" }} className="col-sm-3 mb-3" key={product.id}>
                 <div className="card h-100 shadow-sm" style={{ borderRadius: "1rem" }}>
                   <div className="card-header text-center fw-bold text-white"
                     style={{
@@ -23,7 +23,7 @@ export default function Product() {
                   </div>
                   <div className="card-body d-flex align-items-center justify-content-center p-2">
                     <img
-                      src={product.img}
+                      src={product.image}
                       alt={product.name}
                       className="img-fluid"
                       style={{ maxHeight: "130px", objectFit: "contain" }}

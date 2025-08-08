@@ -23,7 +23,7 @@ export default function Cart() {
 
   const updateCartInLocalStorage = (id, newQuantity) => {
     let updatedCart = [...cart];
-    const index = updatedCart.findIndex((item) => item.id === id);
+    const index = updatedCart.findIndex((item) => item._id === id);
 
     if (newQuantity > 0) {
       if (index !== -1) {
@@ -103,7 +103,7 @@ export default function Cart() {
                     className="card shadow-sm p-3 d-flex flex-row align-items-center mb-3"
                   >
                     <img
-                      src={item.img}
+                      src={item.image}
                       alt={item.name}
                       style={{
                         width: "100px",
@@ -119,7 +119,7 @@ export default function Cart() {
                         <button
                           className="btn btn-danger"
                           onClick={() =>
-                            handleIncrement(item.id, item.quantity)
+                            handleIncrement(item._id, item.quantity)
                           }
                         >
                           +
@@ -130,7 +130,7 @@ export default function Cart() {
                         <button
                           className="btn btn-success"
                           onClick={() =>
-                            handleDecrement(item.id, item.quantity)
+                            handleDecrement(item._id, item.quantity)
                           }
                         >
                           -
@@ -148,7 +148,7 @@ export default function Cart() {
                   <ul className="list-group list-group-flush">
                     {cart.map((item) => (
                       <li
-                        key={item.id}
+                        key={item._id}
                         className="list-group-item d-flex justify-content-between align-items-center"
                       >
                         {item.name}

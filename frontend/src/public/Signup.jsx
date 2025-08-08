@@ -3,7 +3,7 @@ import { message, Select } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
-  const [fname, setFname] = useState('');
+  const [fullname, setfullname] = useState('');
   const [contact, setContact] = useState('');
   const [gender, setGender] = useState('');
   const [email, setEmail] = useState('');
@@ -45,7 +45,7 @@ export default function Signup() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== cpassword) {
       passerror();
@@ -53,16 +53,36 @@ export default function Signup() {
     }
     try {
       const userData = {
-        fname,
+        fullname,
         contact,
         gender,
         email,
         password,
       };
-      success();
-      setTimeout(() => {
-        natigate('/login');
-      }, 1000);
+      await fetch(`${process.env.REACT_APP_BACKEND}api/users/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.message === "User registered successfully") {
+            success();
+            setTimeout(() => {
+              natigate('/login');
+            }, 1000);
+          } else {
+            messageApi.open({
+              type: 'warning',
+              content: 'Email already exists',
+            });
+          }
+        })
+        .catch(err => {
+          usererror();
+        });
     } catch (error) {
       usererror();
       return;
@@ -95,14 +115,14 @@ export default function Signup() {
                   {/* Left Column */}
                   <div className="col-12 col-md-6">
                     <div className="mb-3">
-                      <label className="form-label" htmlFor='fname'>Full Name</label>
+                      <label className="form-label" htmlFor='fullname'>Full Name</label>
                       <input
                         type="text"
                         className="form-control"
-                        id='fname'
+                        id='fullname'
                         placeholder="Rohit Das"
                         required
-                        onChange={(e) => setFname(e.target.value)}
+                        onChange={(e) => setfullname(e.target.value)}
                       />
                     </div>
 
@@ -197,6 +217,6 @@ export default function Signup() {
           </div>
         </div>
       </div>
-    </>
-  );
+    </>
+  );
 }

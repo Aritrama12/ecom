@@ -7,13 +7,13 @@ export default function Productdetails() {
 
   const products = JSON.parse(localStorage.getItem("product")) || []
 
-  const product = products.find(item => item.id === parseInt(id)) || "";
+  const product = products.find(item => item._id === id) || "";
 
   const [quantity, setQuantity] = useState(0);
-
+  
   useEffect(() => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const existingProduct = cart.find((item) => item.id === product.id);
+    const existingProduct = cart.find((item) => item._id === product.id);
     if (existingProduct) {
       setQuantity(existingProduct.quantity);
     }
@@ -22,7 +22,7 @@ export default function Productdetails() {
   const updateCartInLocalStorage = (newQuantity) => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    const productIndex = cart.findIndex((item) => item.id === product.id);
+    const productIndex = cart.findIndex((item) => item._id === product.id);
 
     if (newQuantity > 0) {
       if (productIndex !== -1) {
@@ -64,7 +64,7 @@ export default function Productdetails() {
             <div className="col-5">
               <div className="card" style={{ width: "100%" }}>
                 <img
-                  src={product.img}
+                  src={product.image}
                   className="card-img m-2"
                   alt={product.name}
                   style={{ maxHeight: "200px", objectFit: "contain" }}

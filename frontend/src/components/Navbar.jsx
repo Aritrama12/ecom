@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Signup from "../public/Signup";
-import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Login from "../public/Login";
 export default function Navbar() {
   return (
@@ -99,14 +99,11 @@ export default function Navbar() {
                 </button>
               </div>
             </div>
-            <button
-              type="button"
-              className="btn btn-primary"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-            >
-              Log in<i className="fa-solid fa-user"></i>
-            </button>
+            <div className="btn btn-primary">
+              <Link style={{ textDecoration: "none" }} className="nav-link" to="/login">
+                Log in <i className="fa-solid fa-user"></i>
+              </Link>
+            </div>
             <div className="btn-group dropstart">
               <button type="button" className="btn btn-danger dropdown-toggle ms-2" data-bs-toggle="dropdown" aria-expanded="false">
                 <i className="fa-solid fa-bars " />
@@ -120,32 +117,6 @@ export default function Navbar() {
                 <li><Link className="dropdown-item" style={{ textDecoration: "none" }} to="#">Logout</Link></li>
 
               </ul>
-            </div>
-          </div>
-        </div>
-        <div
-          className="modal fade"
-          id="exampleModal"
-          tabIndex={-2}
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h1 className="modal-title fs-5" id="exampleModalLabel">
-                  Log in
-                </h1>
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                />
-              </div>
-              <div className="modal-body">
-                <Login />
-              </div>
             </div>
           </div>
         </div>
