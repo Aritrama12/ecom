@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+//import dotenv from 'dotenv'
 import Home from "./public/Home";
 import Signup from "./public/Signup";
 import Login from "./public/Login";
@@ -14,7 +15,7 @@ import TnC from "./public/TnC";
 import Main from "./components/Main";
 import { useEffect, useState } from "react";
 
-
+//dotenv.config()
 function App() {
 
   const [products, setProducts] = useState([]);
